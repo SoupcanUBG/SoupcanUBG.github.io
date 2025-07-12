@@ -1,62 +1,121 @@
- body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #111010;
-        color: white;
-        overflow: hidden;
-      }
-      .navbar {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        background: #111010;
-        position: fixed;
-        top: 0;
-        height: 44px;
-        width: 100%;
-        z-index: 1000;
-      }
-      .nav-links {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-      }
-      .nav-links li {
-        margin-left: 20px;
-      }
-      .nav-links a {
-        color: white;
-        text-decoration: none;
-        padding: 8px 16px;
-        transition: background 0.3s;
-      }
-      .nav-links a:hover {
-        background: #575757;
-        border-radius: 4px;
-      }
-      #screen,
-      #ui,
-      #transition-layer {
-        position: absolute;
-        top: 44px; /* Below navbar */
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 44px);
-      }
-       .button-container {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            margin-right: 3px;
-        }
-        .fullscreen-button a, .refresh-button a, .export-button a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            transition: background 0.3s;
-        }
-        .fullscreen-button a:hover, .refresh-button a:hover, .export-button a:hover {
-            background: #575757;
-            border-radius: 4px;
-        }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111010;
+  color: white;
+  overflow: hidden;
+}
+
+/* Navbar base */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #111010;
+  position: fixed;
+  top: 0;
+  height: 44px;
+  width: 100%;
+  z-index: 1000;
+  transition: height 0.3s ease, background 0.3s ease;
+}
+
+/* Navbar minimized */
+.navbar.minimized {
+  height: 24px;
+  background: #000;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+/* Restore tab */
+#navbar-tab {
+  background: #222;
+  color: #ccc;
+  padding: 2px 8px;
+  border-radius: 3px 0 0 3px;
+  font-size: 12px;
+  cursor: pointer;
+  display: none;
+  user-select: none;
+}
+
+/* Show tab when minimized */
+.navbar.minimized #navbar-tab {
+  display: block;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background: #575757;
+  border-radius: 4px;
+}
+
+/* Buttons in navbar */
+.navbar button {
+  margin-left: 10px;
+  background: #222;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.navbar button:hover {
+  background: #444;
+}
+
+/* Content below navbar */
+#screen,
+#ui,
+#transition-layer {
+  position: absolute;
+  top: 44px; /* Below navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 44px);
+  transition: top 0.3s ease, height 0.3s ease;
+}
+
+/* When navbar minimized, content moves up */
+.navbar.minimized ~ #screen,
+.navbar.minimized ~ #ui,
+.navbar.minimized ~ #transition-layer {
+  top: 24px;
+  height: calc(100vh - 24px);
+}
+
+/* Fullscreen mode for content */
+.fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  z-index: 2000;
+  background: #000;
+}
