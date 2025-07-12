@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="manifest" href="manifest.json" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #111010;
+        color: white;
+        overflow: hidden;
+      }
+      .navbar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: #111010;
+        position: fixed;
+        top: 0;
+        height: 44px;
+        width: 100%;
+        z-index: 1000;
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links li {
+        margin-left: 20px;
+      }
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        transition: background 0.3s;
+      }
+      .nav-links a:hover {
+        background: #575757;
+        border-radius: 4px;
+      }
+      #screen,
+      #ui,
+      #transition-layer {
+        position: absolute;
+        top: 44px; /* Below navbar */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 44px);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li>
+          <a href="/index.html"><i>home-link</i></a>
+        </li>
+        <li>
+          <a href="/05/"><i>5.0</i></a>
+        </li>
+        <li>
+          <a href="/41/"><i>4.1</i></a>
+        </li>
+        <li>
+          <a href="/modded05-1/"><i>mod 1 - 5.0</i></a>
+        </li>
+        <li>
+          <a href="/modded41-1/"><i>mod 1 - 4.1</i></a>
+        </li>
+        <li>
+          <a href="/modded05-2/"><i>mod 2 - 5.0</i></a>
+        </li>
+        <li>
+          <a href="/modded41-2/"><i>mod 2 - 4.1</i></a>
+        </li>
+      </ul>
+    </nav>
+    <canvas id="screen"></canvas>
+    <div id="ui"></div>
+    <div id="transition-layer"></div>
+
+    <script type="module" src="main.bundle.js" defer></script>
+  </body>
+</html>
