@@ -1,30 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>404 - Page Not Found</title>
-    <link rel="icon" type="image/png" href="/brand/favicon.ico" />
+    <link rel="manifest" href="manifest.json" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <!-- meta data -->
-    <meta property="og:title" content="SoupCan" />
-    <meta
-      property="og:description"
-      content="At SoupCan, we are dedicated to providing a comprehensive collection of educational resources designed to support students, educators, and lifelong learners. Our mission is to make quality educational materials accessible to everyone, fostering a love for learning and academic success."
-    />
-    <meta property="og:image" content="/brand/favicon.ico" />
-    <meta property="og:image:width" content="100" />
-    <meta property="og:image:height" content="100" />
-    <meta property="og:url" content="https://soupcan.site" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2198350168514177"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- end meta data -->
     <style>
       body {
         margin: 0;
@@ -63,25 +48,14 @@
         background: #575757;
         border-radius: 4px;
       }
-      .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-      }
-
-      .home-link {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: #575757;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-      }
-      .home-link:hover {
-        background: #444;
+      #screen,
+      #ui,
+      #transition-layer {
+        position: absolute;
+        top: 44px; /* Below navbar */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 44px);
       }
     </style>
   </head>
@@ -111,5 +85,10 @@
         </li>
       </ul>
     </nav>
+    <canvas id="screen"></canvas>
+    <div id="ui"></div>
+    <div id="transition-layer"></div>
+
+    <script type="module" src="main.bundle.js" defer></script>
   </body>
 </html>
