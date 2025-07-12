@@ -57,6 +57,23 @@
         width: 100%;
         height: calc(100vh - 44px);
       }
+       .button-container {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            margin-right: 3px;
+        }
+        .fullscreen-button a, .refresh-button a, .export-button a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background 0.3s;
+        }
+        .fullscreen-button a:hover, .refresh-button a:hover, .export-button a:hover {
+            background: #575757;
+            border-radius: 4px;
+        }
+
     </style>
   </head>
   <body>
@@ -84,6 +101,18 @@
           <a href="/modded41-2/"><i>mod 2 - 4.1</i></a>
         </li>
       </ul>
+      <div class="button-container">
+            <div class="fullscreen-button">
+                <a href="#" id="fullscreenLink"><i class="fa-solid fa-expand"></i></a>
+            </div>
+            <div class="refresh-button">
+                <a href="#" id="refreshLink"><i class="fa-solid fa-arrows-rotate"></i></a>
+            </div>
+            <div class="export-button">
+                <a href="#" id="exportLink"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
     </nav>
     <canvas id="screen"></canvas>
     <div id="ui"></div>
